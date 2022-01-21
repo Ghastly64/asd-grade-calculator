@@ -1,0 +1,36 @@
+.App {
+  align-items: center;
+  text-align: center;
+  background-color: whitesmoke;
+  min-height: 100vh;
+}
+
+
+.App-header {
+  
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+
+  .App-logo {
+    width: 20%;
+  }
+
+}
+
+
+.form-horz-container {
+  display: flex;
+  flex-direction: row;
+}
+
+.form-class-list {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 50vw;
+}
+
+.add-field-button {
+  width: 28vw;
+}
