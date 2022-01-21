@@ -1,4 +1,4 @@
-import React from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg'
 import 'antd/dist/antd.css';
 import './App.scss';
@@ -7,27 +7,33 @@ import { MinusCircleOutlined, PlusOutlined } from '@ant-design/icons';
 
 const { Option } = Select;
 
-const onFinish = (values: any) => {
-  var total = 0;
-  var totalCredits = 0;
-  for (var i = 0; i < values.class_list.length; i++) {
-    var currTotal = 0;
-    currTotal += values.class_list[i].grade
-    if (values.class_list[i].isAP) {
-      currTotal += 0.25
-    }
-    totalCredits += values.class_list[i].credits
-    total += (currTotal * values.class_list[i].credits)
-  }
-  console.log("your gpa is " + (total / totalCredits))
-};
-
 function App() {
+
+  const [gpa, setGpa] = useState(0);
+
+  const onFinish = (values: any) => {
+    var total = 0;
+    var totalCredits = 0;
+    for (var i = 0; i < values.class_list.length; i++) {
+      var currTotal = 0;
+      currTotal += values.class_list[i].grade
+      if (values.class_list[i].isAP) {
+        currTotal += 0.25
+      }
+      totalCredits += values.class_list[i].credits
+      total += (currTotal * values.class_list[i].credits)
+    }
+    setGpa(Math.round(total / totalCredits))
+  };
+
   return (
     <div className="App">
       <header className="App-header">
         <img src={logo} className="App-logo" alt="logo" />
       </header>
+      <div className='form-header'>
+        <h1>ASD GPA Calculator</h1>
+      </div>
       <div className='form-container'>
         <Form className="form-class-list" name="dynamic_form_nest_item" onFinish={onFinish} autoComplete="off">
           <Form.List name="class_list">
@@ -38,21 +44,21 @@ function App() {
                     <Form.Item
                       {...restField}
                       name={[name, 'class']}
-                      rules={[{ required: true, message: 'Missing class name' }]}
+                      rules={[{ required: true, message: 'Missing Class Name' }]}
                     >
                       <Input placeholder="Class Name" />
                     </Form.Item>
                     <Form.Item
                       {...restField}
                       name={[name, 'credits']}
-                      rules={[{ required: true, message: 'Missing credits', type: 'number' }]}
+                      rules={[{ required: true, message: 'Missing Credits', type: 'number' }]}
                     >
                       <InputNumber style={{ width: 100 }} placeholder="Credits"/>
                     </Form.Item>
                     <Form.Item
                       {...restField}
                       name={[name, 'grade']}
-                      rules={[{ required: true, message: 'Missing grade' }]}
+                      rules={[{ required: true, message: 'Missing Grade' }]}
                     >
                       <Select
                         style={{ width: 100 }}
@@ -85,7 +91,7 @@ function App() {
                 ))}
                 <Form.Item>
                   <Button className="add-field-button" type="dashed" onClick={() => add()} block icon={<PlusOutlined />}>
-                    Add field
+                    Add class
                   </Button>
                 </Form.Item>
               </>
@@ -97,6 +103,9 @@ function App() {
             </Button>
           </Form.Item>
         </Form>
+      </div>
+      <div className='GPA-container'>
+        <h1>GPA: {gpa.toFixed(2)}</h1>
       </div>
     </div>
   );
