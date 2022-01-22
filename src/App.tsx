@@ -40,28 +40,37 @@ function App() {
             {(fields, { add, remove }) => (
               <>
                 {fields.map(({ key, name, ...restField }) => (
-                  <Space key={key} className='form-horz-container' align="baseline" size={"small"} style={{marginBottom: -15}}>
+                  <Space key={key} className='form-horz-container' align="baseline" size={"small"} >
                     <Form.Item
                       {...restField}
                       name={[name, 'class']}
-                      rules={[{ required: true, message: 'Missing Class Name' }]}
+                      className="class-name-container"
+                      rules={[{ message: 'Missing Class Name' }]}
                     >
                       <Input placeholder="Class Name" />
                     </Form.Item>
                     <Form.Item
                       {...restField}
                       name={[name, 'credits']}
+                      className="credits-container"
                       rules={[{ required: true, message: 'Missing Credits', type: 'number' }]}
                     >
-                      <InputNumber style={{ width: 100 }} placeholder="Credits"/>
+                      <Select
+                        placeholder="Course Length"
+                        allowClear
+                      >
+                        <Option value={1}>Full-Year</Option>
+                        <Option value={0.5}>Semester</Option>
+                        
+                      </Select>
                     </Form.Item>
                     <Form.Item
                       {...restField}
                       name={[name, 'grade']}
+                      className="grade-container"
                       rules={[{ required: true, message: 'Missing Grade' }]}
                     >
                       <Select
-                        style={{ width: 100 }}
                         placeholder="Grade"
                         allowClear
                       >

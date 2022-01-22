@@ -33,7 +33,7 @@
 .form-horz-container {
   display: flex;
   flex-direction: row;
-  margin-bottom: 0rem;
+  margin-bottom: -1rem;
 }
 
 .form-class-list {
@@ -41,4 +41,16 @@
   flex-direction: column;
   align-items: center;
   width: 50vw;
+}
+
+.class-name-container {
+  width: 9rem;
+}
+
+.grade-container {
+  width: 5.5rem;
+}
+
+.credits-container {
+  width: 9rem;
 }
