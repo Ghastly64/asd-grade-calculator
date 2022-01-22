@@ -23,7 +23,7 @@ function App() {
       totalCredits += values.class_list[i].credits
       total += (currTotal * values.class_list[i].credits)
     }
-    setGpa(Math.round(total / totalCredits))
+    setGpa(Math.round((total / totalCredits) * 100) / 100)
   };
 
   return (
@@ -40,7 +40,7 @@ function App() {
             {(fields, { add, remove }) => (
               <>
                 {fields.map(({ key, name, ...restField }) => (
-                  <Space key={key} className='form-horz-container' align="baseline">
+                  <Space key={key} className='form-horz-container' align="baseline" size={"small"} style={{marginBottom: -15}}>
                     <Form.Item
                       {...restField}
                       name={[name, 'class']}
