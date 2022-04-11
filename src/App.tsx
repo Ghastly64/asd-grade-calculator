@@ -118,7 +118,6 @@ function App() {
       </div>
       <div className='footer-container'>
         <h2>Made with ❤️ by <a href='https://github.com/msorial44' target="_blank" rel="noreferrer">Mark Sorial</a></h2> 
-        
       </div>
     </div>
   );
