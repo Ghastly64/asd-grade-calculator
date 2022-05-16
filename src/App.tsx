@@ -53,7 +53,7 @@ function App() {
                       {...restField}
                       name={[name, 'credits']}
                       className="credits-container"
-                      rules={[{ required: true, message: 'Missing Credits', type: 'number' }]}
+                      rules={[{ required: true, message: '', type: 'number' }]}
                     >
                       <Select
                         placeholder="Course Length"
@@ -68,7 +68,7 @@ function App() {
                       {...restField}
                       name={[name, 'grade']}
                       className="grade-container"
-                      rules={[{ required: true, message: 'Missing Grade' }]}
+                      rules={[{ required: true, message: '' }]}
                     >
                       <Select
                         placeholder="Grade"
