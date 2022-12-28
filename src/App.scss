@@ -67,3 +67,12 @@
   margin-left: auto; 
   margin-right: auto;
 }
+
+.sidebar-container {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  width: 30vw;
+  right: 5vw;
+  z-index: 1;
+}
