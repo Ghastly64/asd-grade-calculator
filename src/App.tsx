@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from 'react';
+import React, { useState } from 'react';
 import logo from './logo.svg'
 import 'antd/dist/antd.css';
 import './App.scss';
@@ -25,10 +25,6 @@ function App() {
     }
     setGpa(Math.round((total / totalCredits) * 100) / 100)
   };
-
-  useEffect(() => {  
-    (window.adsbygoogle = window.adsbygoogle || []).push({});
-  });
 
   return (
     <div className="App">
@@ -123,21 +119,6 @@ function App() {
       <div className='footer-container'>
         <h2>Made with ❤️ by <a href='https://github.com/msorial44' target="_blank" rel="noreferrer">Mark Sorial</a></h2> 
       </div>
-      
-      <div className='sidebar-container'>
-        <ins 
-          className="adsbygoogle" 
-          style={{ display:"block" }}
-          data-ad-client="ca-pub-7845508183652014"
-          data-ad-slot="9474828519"
-          data-ad-format="auto"
-          data-adtest="on"
-          data-full-width-responsive="true">
-        </ins>
-           
-        
-      </div>
-
     </div>
   );
 }
