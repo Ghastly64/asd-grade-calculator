@@ -2,6 +2,8 @@
 
 This project allows students from ASD to calculate their weighted or unweight GPA according to the scale acctually used by the school.
 
+Recieved over 700 monthly users at peak (Around the size of the entire High School)
+
 ## Available Scripts
 
 In the project directory, you can run:
